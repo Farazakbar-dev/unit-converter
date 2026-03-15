@@ -47,3 +47,25 @@ convertBtn.addEventListener("click", function () {
   convertVolume();
   convertMass();
 });
+
+
+let select = document.createElement("select")
+select.id="select-unit-el"
+select.name="unit-select"
+
+document.getElementById("select-converter-unit").appendChild(select)
+
+
+let units = ["Length", "Volume", "Mass"]
+let defaultUnit = "Length"
+
+units.forEach(unit => {
+  let option = document.createElement("option")
+  option.value = unit.toLowerCase()
+  option.text = unit
+  if(unit === defaultUnit){
+    option.selected = true;
+  }
+  select.appendChild(option)
+
+})
