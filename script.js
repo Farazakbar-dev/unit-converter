@@ -7,7 +7,7 @@ let massEl = document.getElementById("mass-result-card");
 // FUNCTION TO GET INPUT
 function getInput() {
   let inputValue = document.getElementById("input-el").value;
-  return inputValue
+  return inputValue;
 }
 // FUNCTION TO CONVERT LENGTH  (FEET - METER)
 function convertLength() {
@@ -48,24 +48,37 @@ convertBtn.addEventListener("click", function () {
   convertMass();
 });
 
+let select = document.createElement("select");
+select.id = "select-unit-el";
+select.name = "unit-select";
 
-let select = document.createElement("select")
-select.id="select-unit-el"
-select.name="unit-select"
+document.getElementById("select-converter-unit").appendChild(select);
 
-document.getElementById("select-converter-unit").appendChild(select)
+let units = ["Length", "Volume", "Mass"];
+let defaultUnit = "Length";
 
-
-let units = ["Length", "Volume", "Mass"]
-let defaultUnit = "Length"
-
-units.forEach(unit => {
-  let option = document.createElement("option")
-  option.value = unit.toLowerCase()
-  option.text = unit
-  if(unit === defaultUnit){
+units.forEach((unit) => {
+  let option = document.createElement("option");
+  option.value = unit.toLowerCase();
+  option.text = unit;
+  if (unit === defaultUnit) {
     option.selected = true;
   }
-  select.appendChild(option)
+  select.appendChild(option);
+});
 
-})
+let length = document.getElementById("length-result");
+let volume = document.getElementById("volume-result");
+let mass = document.getElementById("mass-result");
+
+select.addEventListener("change", function () {
+  let selected = select.value;
+
+  if (selected === "length") {
+    length.classList.remove("hidden");
+  } else if (selected === "volume") {
+    volume.classList.remove("hidden");
+  } else if (selected === "mass") {
+    mass.classList.remove("hidden");
+  }
+});
