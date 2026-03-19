@@ -91,11 +91,30 @@ input[type="number"] {
 
 /* Dark Theme */
 .middle-section {
+  color: var(--text-color);
   margin: 10px 0;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10px;
+}
+
+.middle-section section label {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.middle-section section select {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-size: 1.25rem;
+  border-color: var(--border-color);
+  padding: 3px 6px;
+  font-weight: 550;
+}
+.middle-section section select:focus {
+  outline: none;
 }
 
 .middle-section #theme-btn {
@@ -108,11 +127,15 @@ input[type="number"] {
   transition: 0.3s ease;
   background-color: var(--background-color);
   color: var(--text-color);
-  margin-left: 10px;
+
 }
 
-.middle-section #theme-btn:hover { opacity: 0.8; }
-.middle-section #theme-btn:active { opacity: 0.5; }
+.middle-section #theme-btn:hover {
+  opacity: 0.8;
+}
+.middle-section #theme-btn:active {
+  opacity: 0.5;
+}
 
 .result {
   display: flex;
@@ -120,12 +143,12 @@ input[type="number"] {
   align-items: center;
   justify-content: center;
   margin: 20px 0;
-  color: var(--text-color);  
+  color: var(--text-color);
   padding: 0 10px;
 }
 
 .result .result-card {
-  background-color: var(--card-background);  
+  background-color: var(--card-background);
   color: var(--text-color);
   width: 100%;
   text-align: center;
