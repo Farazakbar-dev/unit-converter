@@ -8,7 +8,7 @@ let massEl = document.getElementById("mass-result-card");
 // FUNCTION TO GET INPUT
 function getInput() {
   let inputValue = document.getElementById("input-el").value;
-  return inputValue
+  return inputValue;
 }
 // FUNCTION TO CONVERT LENGTH  (FEET - METER)
 function convertLength() {
@@ -49,12 +49,16 @@ convertBtn.addEventListener("click", function () {
   convertMass();
 });
 
-// Dark Mode 
-let btn = document.getElementById("theme-btn")
+// Dark Mode
+let btn = document.getElementById("theme-btn");
 
-    btn.addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
-        btn.textContent = document.body.classList.contains("dark-mode")
-          ? "Light Theme"
-          : "Dark Theme";
-      });
+btn.addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+  btn.textContent = document.body.classList.contains("dark-mode")
+    ? "Light Theme"
+    : "Dark Theme";
+});
+
+
+// DROP DOWN MENU
+
