@@ -49,3 +49,12 @@ convertBtn.addEventListener("click", function () {
   convertMass();
 });
 
+// Dark Mode 
+let btn = document.getElementById("theme-btn")
+
+    btn.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        btn.textContent = document.body.classList.contains("dark-mode")
+          ? "Light Theme"
+          : "Dark Theme";
+      });

@@ -1,3 +1,19 @@
+:root {
+  --accent-color: rgb(92, 28, 211);
+  --text-color: black;
+  --background-color: lightgrey;
+  --card-background: white;
+  --border-color: white;
+}
+
+body.dark-mode {
+  --accent-color: rgb(49, 33, 78);
+  --text-color: white;
+  --background-color: black;
+  --card-background: #1e1e1e;
+  --border-color: #444;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +26,14 @@ body {
   justify-content: center;
   height: 100vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  background-color: lightgrey;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: 0.3s ease;
 }
 
 .main-container {
   width: 600px;
-  border: 2px solid white;
+  border: 2px solid var(--border-color);
   border-radius: 5px;
 }
 
@@ -24,7 +42,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(92, 28, 211);
+  background-color: var(--accent-color);
   border: none;
   border-radius: 5px;
 }
@@ -70,18 +88,44 @@ input[type="number"] {
   opacity: 0.8;
 }
 
+/* Dark Theme */
+.middle-section {
+  margin: 10px 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.middle-section #theme-btn {
+  font-size: 1rem;
+  padding: 5px 10px;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin-left: 10px;
+}
+
+.middle-section #theme-btn:hover { opacity: 0.8; }
+.middle-section #theme-btn:active { opacity: 0.5; }
+
 .result {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px 0 20px 0;
-  color: black;
+  margin: 20px 0;
+  color: var(--text-color);  
   padding: 0 10px;
 }
 
 .result .result-card {
-  background: white;
+  background-color: var(--card-background);  
+  color: var(--text-color);
   width: 100%;
   text-align: center;
   padding: 20px 0;
