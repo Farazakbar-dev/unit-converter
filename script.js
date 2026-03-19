@@ -52,13 +52,40 @@ convertBtn.addEventListener("click", function () {
 // Dark Mode
 let btn = document.getElementById("theme-btn");
 
+if(localStorage.getItem("theme") === "dark"){
+  document.body.classList.add("dark-mode");
+  btn.textContent = "Light Mode";
+}
+
 btn.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
   btn.textContent = document.body.classList.contains("dark-mode")
-    ? "Light Theme"
-    : "Dark Theme";
+  if(document.body.classList.contains("dark-mode")){
+    btn.textContent = "Light Mode"; 
+    localStorage.setItem("theme", "dark"); 
+  } else {
+    btn.textContent = "Dark Mode"; 
+    localStorage.setItem("theme", "light")
+  }
 });
 
 
 // DROP DOWN MENU
+let select = document.createElement("select");
+select.id = "select-unit-el";
+select.name = "unit-select";
 
+
+document.getElementById("unit-container").appendChild(select);
+let units = ["Length", "Volume", "Mass"];
+let defaultUnit = "Length";
+
+units.forEach((unit) => {
+  let option = document.createElement("option");
+  option.value = unit.toLowerCase();
+  option.text = unit;
+  if (unit === defaultUnit) {
+    option.selected = true;
+  }
+  select.appendChild(option);
+});
