@@ -44,10 +44,29 @@ function convertMass() {
 
 // Add Even Listener
 convertBtn.addEventListener("click", function () {
-  convertLength();
-  convertVolume();
-  convertMass();
+  let selectedValue = select.value; 
+  hideAllCards();
+  if(selectedValue === "volume"){
+    document.getElementById("volume-result").style.display = "block";
+    convertVolume();
+  } else if(selectedValue === "length"){
+    document.getElementById("length-result").style.display = "block";
+    convertLength();
+  } else if(selectedValue === "mass"){
+    document.getElementById("mass-result").style.display = "block";
+    convertMass();
+
+  }
 });
+
+function hideAllCards(){
+  document.getElementById("length-result").style.display = "none";
+  document.getElementById("volume-result").style.display = "none";
+  document.getElementById("mass-result").style.display = "none";
+
+}
+
+
 
 // Dark Mode
 let btn = document.getElementById("theme-btn");
@@ -59,7 +78,6 @@ if(localStorage.getItem("theme") === "dark"){
 
 btn.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
-  btn.textContent = document.body.classList.contains("dark-mode")
   if(document.body.classList.contains("dark-mode")){
     btn.textContent = "Light Mode"; 
     localStorage.setItem("theme", "dark"); 
